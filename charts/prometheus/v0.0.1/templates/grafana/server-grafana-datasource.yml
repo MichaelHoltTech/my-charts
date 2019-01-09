@@ -14,7 +14,7 @@ data:
   prometheus-datasource.yml: |-
     apiVersion: 1
     datasources:
-    - name: Prometheus
+    - name: prometheus
       type: prometheus
       url: http://{{ printf "%s-%s" .Release.Name "server" }}:80
       access: proxy

@@ -1,0 +1,15 @@
+{{- if .Values.grafana.enabled -}}
+apiVersion: v1
+data:
+  {{ (.Files.Glob "dashboards/k8s/*.json").AsConfig | indent 2 }}
+  {{ (.Files.Glob "dashboards/k8s-resources/*.json").AsConfig | indent 2 }}
+kind: ConfigMap
+metadata:
+  labels:
+    app: {{ template "prometheus.fullname" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: "{{ .Values.server.name }}"
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "prometheus.server.fullname" . }}-dashboard-nginx
+{{- end }}
