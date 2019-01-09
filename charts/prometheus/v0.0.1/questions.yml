@@ -68,7 +68,7 @@ questions:
     type: string
     label: Grafana Image Name
   - variable: grafana.image.tag
-    default: "5.0.0"
+    default: "5.4.2"
     description: "Grafana image tag"
     type: string
     label: Grafana Image Tag
@@ -215,7 +215,7 @@ questions:
     type: string
     label: Grafana Volume Size
     required: true
-  - variable: grafana.persistence.storageClass
+  - variable: grafana.persistence.storageClassName
     default: ""
     description: "If undefined or set to null, using the default storageClass. Defaults to null."
     type: storageclass
