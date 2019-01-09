@@ -10,6 +10,5 @@ metadata:
     release: {{ .Release.Name }}
   name: {{ template "prometheus.server.fullname" . }}-dashboard-nginx
 data:
-{{ (.Files.Glob "dashboards/k8s/*.json").AsConfig | indent 2 }}
-{{ (.Files.Glob "dashboards/k8s-resources/*.json").AsConfig | indent 2 }}
+{{ (.Files.Glob "dashboards/dashboards/*.json").AsConfig | indent 2 }}
 {{- end }}
