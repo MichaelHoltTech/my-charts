@@ -1011,17 +1011,21 @@ grafana:
 
   image:
     repository: grafana/grafana
-    tag: 5.0.0
+    tag: 5.4.2
 
-  grafanaWatcher:
-    repository: quay.io/coreos/grafana-watcher
-    tag: v0.0.8
+
 
   auth:
     anonymous:
       enabled: "true"
 
-  prometheusPort: 80
+  sidecar:
+    dashboards:
+      enabled: "true"
+      label: "grafana_dashboard"
+    datasources:
+      enabled: "true"
+      label: "grafana_datasource"
 
   persistence:
     enabled: false
