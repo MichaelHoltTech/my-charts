@@ -4,12 +4,12 @@ kind: ConfigMap
 metadata:
   labels:
     grafana_datasource: "yes"
-    app: {{ template "grafana.fullname" . }}
+    app: {{ template "prometheus.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     component: "{{ .Values.server.name }}"
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
-  name: {{ template "grafana.server.fullname" . }}-datasource-prometheus
+  name: {{ template "prometheus.server.fullname" . }}-datasource-prometheus
 data:
   prometheus-datasource.yml: |-
     apiVersion: 1
