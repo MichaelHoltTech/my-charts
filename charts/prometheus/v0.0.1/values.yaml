@@ -1009,9 +1009,6 @@ grafana:
   adminUser: "admin"
   adminPassword: "admin"
 
-  image:
-    repository: grafana/grafana
-    tag: 5.4.2
 
 
 
