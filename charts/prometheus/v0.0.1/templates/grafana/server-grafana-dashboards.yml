@@ -1,8 +1,5 @@
 {{- if .Values.grafana.enabled -}}
 apiVersion: v1
-data:
-  {{ (.Files.Glob "dashboards/k8s/*.json").AsConfig | indent 2 }}
-  {{ (.Files.Glob "dashboards/k8s-resources/*.json").AsConfig | indent 2 }}
 kind: ConfigMap
 metadata:
   labels:
@@ -12,4 +9,7 @@ metadata:
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
   name: {{ template "prometheus.server.fullname" . }}-dashboard-nginx
+data:
+{{ (.Files.Glob "dashboards/k8s/*.json").AsConfig | indent 2 }}
+{{ (.Files.Glob "dashboards/k8s-resources/*.json").AsConfig | indent 2 }}
 {{- end }}
