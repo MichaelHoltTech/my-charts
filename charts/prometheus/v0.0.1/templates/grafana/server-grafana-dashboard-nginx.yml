@@ -1534,7 +1534,10 @@ data:
 kind: ConfigMap
 metadata:
   labels:
-    grafana_dashboard: "yes"
-  name: prometheus-cjprl-server-dashboards-kubernetes-capacity-planning
-  namespace: prometheus-cjprl
+    app: {{ template "prometheus.fullname" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: "{{ .Values.server.name }}"
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "prometheus.server.fullname" . }}-dashboard-nginx
 {{- end }}
