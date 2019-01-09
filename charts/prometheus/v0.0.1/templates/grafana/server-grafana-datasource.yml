@@ -16,6 +16,6 @@ data:
     datasources:
     - name: Prometheus
       type: prometheus
-      url: http://{{ printf "%s-%s" .Release.Name "server" }}:{{ .Values.prometheusPort }}
+      url: http://{{ printf "%s-%s" .Release.Name "server" }}:80
       access: proxy
 {{- end }}
